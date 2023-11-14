@@ -339,6 +339,8 @@ tmux_conf_theme_clock_style="24"
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=false
 
+set -s set-clipboard on
+
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
@@ -438,4 +440,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 # # /!\ do not remove the previous line
 
 
-set-option -ga terminal-overrides ",xterm*:Tc"
+#set-option -ga terminal-overrides ",xterm*:Tc"
+# set-option -sa terminal-features ',tmux*:RGB'
+set -as terminal-features ",xterm-256color:RGB"
