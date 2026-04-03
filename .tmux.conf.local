@@ -461,6 +461,14 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @continuum-restore 'on'
 
 
+# 1. 开启剪贴板控制 (OSC 52 支持的核心)
+# 这告诉 tmux："如果内部程序发送了 OSC 52，请更新 tmux 剪贴板并转发给外部终端"
+set -g set-clipboard on
+
+# 2. 允许转义序列透传 (Tmux 3.3a+ 版本必须)
+# 很多现代插件（包括一些 OSC52 实现和图片预览）需要这个权限
+set -g allow-passthrough on
+
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
