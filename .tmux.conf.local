@@ -469,6 +469,13 @@ set -g set-clipboard on
 # 很多现代插件（包括一些 OSC52 实现和图片预览）需要这个权限
 set -g allow-passthrough on
 
+# extended keys support (tmux 3.2+)
+# needed by Control + Shift bindings
+%if #{>=:#{version},3.2}
+set -g extended-keys on
+set -g extended-keys-format csi-u
+%endif
+
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
